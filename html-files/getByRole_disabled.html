@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Disabled Example</title>
+    <style>
+      .checkbox-container {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #333;
+        border-radius: 4px;
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+      }
+    
+      /* Checked state */
+      .checkbox-container.checked::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 6px;
+        width: 6px;
+        height: 12px;
+        border: solid #333;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    
+      /* Disabled state */
+      .checkbox-container[aria-disabled="true"] {
+        cursor: not-allowed;
+        border-color: #ccc;
+      }
+    
+      .checkbox-container[aria-disabled="true"].checked::before {
+        border-color: #ccc;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <form>
+      <label>
+          <input type="checkbox" name="subscribe" disabled>
+          Subscribe to newsletter
+      </label>
+
+      <label>
+          <input type="checkbox" name="terms">
+          Agree to terms and conditions
+      </label>
+      <br><br>
+      <button type="submit" disabled>Submit</button>
+      <button type="button">Cancel</button>
+  </form>
+
+  <br><br>
+  <div class="checkbox-container" role="checkbox" aria-checked="false" aria-disabled="false" onclick="toggleCheckbox(this)"></div>
+
+<button onclick="disableCheckbox()">Disable Checkbox</button>
+<button onclick="enableCheckbox()">Enable Checkbox</button>
+
+<br><br>
+
+<script>
+  function toggleCheckbox(element) {
+    if (element.getAttribute('aria-disabled') === 'true') return;
+    const isChecked = element.getAttribute('aria-checked') === 'true';
+    element.setAttribute('aria-checked', !isChecked);
+    element.classList.toggle('checked', !isChecked);
+  }
+
+  function disableCheckbox() {
+    const checkbox = document.querySelector('.checkbox-container');
+    checkbox.setAttribute('aria-disabled', 'true');
+  }
+
+  function enableCheckbox() {
+    const checkbox = document.querySelector('.checkbox-container');
+    checkbox.setAttribute('aria-disabled', 'false');
+  }
+</script>
+  </body>
+</html>

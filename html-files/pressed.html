@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button Example</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .active {
+            background-color: #28a745;
+            color: white;
+        }
+        .inactive {
+            background-color: #ccc;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggle-button" aria-pressed="false" class="inactive">Toggle Me</button>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        toggleButton.addEventListener('click', () => {
+            const isPressed = toggleButton.getAttribute('aria-pressed') === 'true';
+            toggleButton.setAttribute('aria-pressed', !isPressed);
+            toggleButton.className = isPressed ? 'inactive' : 'active';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Heading Example</title>
+  </head>
+  <body>
+    <h1>Main Title</h1>
+    <h2>Subsection Title</h2>
+    <h3>Detailed Title</h3>
+    <h2>Another Title</h2>
+    <h3>Another Title</h3>
+    <ul>
+      <li aria-level="1">Main Item 1</li>
+      <li aria-level="1" >Main Item 2</li>
+      <ul>
+        <li aria-level="2">Sub-item 2.1</li>
+        <li aria-level="2">Sub-item 2.2</li>
+      </ul>
+    </ul>
+
+    <table role="treegrid" aria-label="Sample Treegrid">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr aria-level="1">
+                <td role="gridcell">Parent 1</td>
+                <td role="gridcell">Description of Parent 1</td>
+            </tr>
+            <tr aria-level="2">
+                <td role="gridcell">Child 1.1</td>
+                <td role="gridcell">Description of Child 1.1</td>
+            </tr>
+            <tr aria-level="3">
+                <td role="gridcell">Child 1.2</td>
+                <td role="gridcell">Description of Child 1.2</td>
+            </tr>
+            <tr aria-level="4">
+                <td role="gridcell">Parent 2</td>
+                <td role="gridcell">Description of Parent 2</td>
+            </tr>
+        </tbody>
+    </table>
+    
+  </body>
+</html>

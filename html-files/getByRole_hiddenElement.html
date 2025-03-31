@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Buttons Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #send-button {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #schedule-button {
+            background-color: #007bff;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Send Mail Now</legend>
+            <label>
+                <input type="radio" name="sendMail" value="yes" onchange="toggleButtons()"> Yes
+            </label>
+            <label>
+                <input type="radio" name="sendMail" value="no" onchange="toggleButtons()"> No
+            </label>
+        </fieldset>
+
+        <button id="send-button" style="display: none;">Send</button>
+        <button id="schedule-button" style="display: none;">Schedule</button>
+    </form>
+
+    <script>
+        function toggleButtons() {
+            const sendButton = document.getElementById('send-button');
+            const scheduleButton = document.getElementById('schedule-button');
+            const selectedOption = document.querySelector('input[name="sendMail"]:checked').value;
+
+            if (selectedOption === 'yes') {
+                sendButton.style.display = 'block';
+                scheduleButton.style.display = 'none';
+            } else {
+                sendButton.style.display = 'none';
+                scheduleButton.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

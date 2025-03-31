@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heading Example</title>
+</head>
+<body>
+    <h1>Main Title</h1>
+    <h2>Subsection Title</h2>
+    <h3>Detailed Title</h3>
+    <h2>Another Title</h2>
+    <h3>Another Title</h3>
+
+
+    <ul>
+        <li role="listitem" aria-level="1">Main Item 1</li>
+        <li role="listitem" aria-level="1">Main Item 2</li>
+        <ul>
+            <li role="listitem" aria-level="2">Sub-item 2.1</li>
+            <li role="listitem" aria-level="2">Sub-item 2.2</li>
+        </ul>
+    </ul>
+    
+    
+    
+
+    
+
+    
+
+<button aria-expanded="false" id="menu-toggle" aria-controls="menu">Menu</button>
+    <div id="menu" role="menu" hidden>
+        <div role="menuitem">Option 1</div>
+        <div role="menuitem">Option 2</div>
+    </div>
+
+    <!-- Expandable Details -->
+    <button aria-expanded="true" id="details-toggle" aria-controls="details">Details</button>
+    <div id="details" role="region">
+        <p>Here are more details...</p>
+    </div>
+
+    <script>
+        // Example JavaScript to toggle visibility and aria-expanded attribute
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            menu.hidden = expanded;
+        });
+
+        document.getElementById('details-toggle').addEventListener('click', function() {
+            const details = document.getElementById('details');
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            details.hidden = expanded;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checked Example</title>
+  </head>
+  <style>
+    .checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .checkbox[aria-checked="true"] {
+    background-color: #4CAF50; /* Checked state style */
+  }
+  </style>
+  <body>
+    <h2>An input with type checkbox</h2>
+    <form>
+      <label>
+          <input type="checkbox" name="subscribe" checked>
+          Subscribe to newsletter
+      </label>
+      <label>
+          <input type="checkbox" name="terms">
+          Agree to terms and conditions
+      </label>
+      <br>
+      <br>
+      <h2>An input with type radio</h2>
+  
+      <fieldset>
+          <legend>Choose your gender</legend>
+          <label>
+              <input type="radio" name="gender" value="male" checked>
+              Male
+          </label>
+          <label>
+              <input type="radio" name="gender" value="female">
+              Female
+          </label>
+      </fieldset>
+  </form>
+
+  <br><br>
+  <h2>A div styled as checkbox</h2>
+  <div
+  class="checkbox"
+  role="checkbox"
+  aria-checked="false"
+  tabindex="0"
+  onclick="toggleCheckbox(this)"
+  onkeydown="if(event.key === ' ') toggleCheckbox(this)">
+</div>
+<label>Subscribe to newsletter</label>
+
+<script>
+  function toggleCheckbox(element) {
+    const isChecked = element.getAttribute("aria-checked") === "true";
+    element.setAttribute("aria-checked", !isChecked);
+  }
+</script>
+  </body>
+</html>

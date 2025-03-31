@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwright Locator Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"], 
+        input[type="password"], 
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        label input {
+            margin-right: 8px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .box {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 100px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .box:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        .action-button {
+            width: auto;
+            background-color: #28a745;
+            margin-top: 20px;
+        }
+
+        .action-button:hover {
+            background-color: #218838;
+        }
+        
+        .close-btn {
+            background-color: red;
+            color: white;
+        }
+
+        .close-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Playwright Locator Practice Page</h1>
+
+    <!-- Form with inputs for practicing various locators -->
+    <form id="login-form">
+        <!-- Name locator -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+        
+        <!-- Name locator -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+
+        <!-- ID and class locator -->
+        <button id="login-button" class="submit-button" data-test-id="submit-btn" type="submit">Login</button>
+    </form>
+
+    <!-- Radio buttons with name and role -->
+    <fieldset>
+        <legend>Select your gender:</legend>
+        <label for="male">
+            <input type="radio" id="male" name="gender" value="male"> Male
+        </label>
+        <label for="female">
+            <input type="radio" id="female" name="gender" value="female"> Female
+        </label>
+    </fieldset>
+
+    <!-- Checkbox with name and checked attribute -->
+    <label for="subscribe">
+        <input type="checkbox" id="subscribe" name="subscribe" checked> Subscribe to newsletter
+    </label>
+
+    <!-- Links for practicing link text and partial link text -->
+    <a href="/profile" id="profile-link">Go to Profile</a>
+    <a href="/settings" id="settings-link">Account Settings</a>
+
+    <!-- Button with role and aria-label -->
+    <button role="button" class="close-btn" aria-label="Close">X</button>
+
+    <!-- Dropdown with role, name, and selected attribute -->
+    <label for="country">Select your country:</label>
+    <select id="country" name="country">
+        <option value="us" selected>United States</option>
+        <option value="uk">United Kingdom</option>
+        <option value="in">India</option>
+    </select>
+
+    <!-- Div with various attributes for CSS, XPath, and other locators -->
+    <div class="container">
+        <div class="box" id="box1" data-custom="first-box">First Box</div>
+        <div class="box" id="box2" data-custom="second-box">Second Box</div>
+    </div>
+
+    <!-- Heading with role and level -->
+    <h2>Section Heading</h2>
+
+    <!-- Another button for practicing locator chaining -->
+    <button class="action-button" data-action="save">Save</button>
+
+</body>
+</html>

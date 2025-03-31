@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARIA Expanded Example</title>
+    <style>
+      /* Style for the collapsible section */
+      .collapsible-content {
+        display: none;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+      }
+
+      /* Style for the button */
+      .collapsible-button {
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+      }
+
+      /* Style for the expanded button */
+      .collapsible-button[aria-expanded="true"] {
+        background-color: #28a745;
+      }
+    </style>
+    <script>
+      // Function to toggle the collapsible section
+      function toggleCollapsible(button) {
+        const content = document.getElementById(button.getAttribute('aria-controls'));
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle the aria-expanded state
+        button.setAttribute('aria-expanded', !expanded);
+        
+        // Toggle the visibility of the collapsible content
+        content.style.display = expanded ? 'none' : 'block';
+      }
+    </script>
+  </head>
+  <body>
+    <h1>ARIA Expanded Example</h1>
+
+    <button
+      class="collapsible-button"
+      aria-expanded="false"
+      aria-controls="collapsible-content"
+      onclick="toggleCollapsible(this)"
+    >
+      Toggle Section
+    </button>
+
+    <div id="collapsible-content" class="collapsible-content">
+      <p>This content can be shown or hidden when you click the button above.</p>
+    </div>
+  </body>
+</html>
