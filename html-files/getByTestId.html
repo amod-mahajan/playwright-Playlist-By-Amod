@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Playwright getByTestId Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Playwright getByTestId Demo</h1>
+
+  <!-- Standard data-testid -->
+  <button data-testid="login-button">Login</button>
+
+  <!-- Custom attribute -->
+  <button data-qa="register-button">Register</button>
+
+  <!-- ID attribute -->
+  <button id="submit-button">Submit</button>
+
+</body>
+</html>

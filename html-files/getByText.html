@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>getByText Locator Demo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    .section {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      background-color: #007acc;
+      color: white;
+      padding: 0.8rem 1rem;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      margin: 0.5rem 0;
+    }
+
+    span {
+      display: inline-block;
+      background-color: #e6f7ff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      color: #005fa3;
+    }
+
+    /* Popup styles */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      display: none;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .popup button.close-btn {
+      background-color: #d9534f;
+      margin-top: 1rem;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>getByText Locator Demo</h1>
+
+  <div class="section">
+    <button onclick="handleClick(this)">Hello World</button>
+    <button onclick="handleClick(this)">Hello amazing world!</button>
+    <button onclick="handleClick(this)">Today is 2025-04-05</button>
+    <button onclick="handleClick(this)">   Trimmed text here   </button>
+    <button onclick="handleClick(this)">
+      This is a paragraph 
+      with multiple lines
+      and some extra     spaces.
+    </button>
+    <div>
+      Parent
+      <span>Child</span>
+    </div>    
+  </div>
+
+  <div class="popup-overlay" id="popupOverlay"></div>
+  <div class="popup" id="popup">
+    <h2 id="popupMessage"></h2>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+  </div>
+
+  <script>
+    function handleClick(button) {
+      const message = `Button "${button.innerText.trim()}" clicked`;
+      document.getElementById('popupMessage').innerText = message;
+      document.getElementById('popupOverlay').style.display = 'block';
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popupOverlay').style.display = 'none';
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
