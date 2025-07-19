@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Multiple Select Dropdown</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    background: #f4f4f4;
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  select {
+    width: 300px;
+    height: 150px; /* Show multiple options */
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1.5px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<label for="fruits">Select your favorite fruits:</label>
+<select id="fruits" name="fruits" multiple>
+  <option value="apple">Apple</option>
+  <option value="banana">Banana</option>
+  <option value="cherry">Cherry</option>
+  <option value="date">Date</option>
+  <option value="elderberry">Elderberry</option>
+  <option value="fig">Fig</option>
+</select>
+
+</body>
+</html>

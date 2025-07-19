@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Styled Select Dropdown</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    background: #f9f9f9;
+  }
+
+  label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  select {
+    width: 250px;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1.8px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+
+  select:hover {
+    border-color: #888;
+  }
+
+  select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+</style>
+</head>
+<body>
+
+<label for="fruit-select">Choose a fruit:</label>
+<select id="fruit-select" name="fruits">
+  <option>-- Please select --</option>
+  <option>Apple</option>
+  <option>Banana</option>
+  <option>Cherry</option>
+  <option>Date</option>
+</select>
+
+</body>
+</html>

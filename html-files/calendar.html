@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Different Date Input Types</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f5f5f5;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input, select {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .calendar-container {
+      position: relative;
+    }
+
+    .fake-calendar {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: none;
+    }
+
+    .readonly-calendar:focus + .fake-calendar {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Native HTML5 Date Input -->
+  <section>
+    <h2>1. Native HTML5 Date Input</h2>
+    <label for="native-date">Choose a date:</label>
+    <input type="date" id="native-date" />
+  </section>
+
+  <!-- 2. Textbox with placeholder (Manual Entry) -->
+  <section>
+    <h2>2. Text Input with Date Format Placeholder</h2>
+    <label for="text-date">Enter date (MM/DD/YYYY):</label>
+    <input type="text" id="text-date" placeholder="MM/DD/YYYY" />
+  </section>
+
+  <!-- 3. Readonly Input with Fake Calendar -->
+  <section>
+    <h2>3. Readonly Input + JavaScript Calendar Trigger</h2>
+    <label for="readonly-date">Pick a date:</label>
+    <div class="calendar-container">
+      <input type="text" id="readonly-date" class="readonly-calendar" value="Click to choose" readonly />
+      <div class="fake-calendar">
+        <p>[ Fake calendar popup UI ]</p>
+        <p>Select a date here...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Dropdown-Based Date Selector -->
+  <section>
+    <h2>4. Dropdown Date Selector</h2>
+    <label>Date of Birth:</label>
+    <select id="dob-day">
+      <option>Day</option>
+      ${Array.from({ length: 31 }, (_, i) => `<option>${i + 1}</option>`).join('')}
+    </select>
+    <select id="dob-month">
+      <option>Month</option>
+      <option>January</option>
+      <option>February</option>
+      <option>March</option>
+      <option>April</option>
+      <option>May</option>
+      <option>June</option>
+      <option>July</option>
+      <option>August</option>
+      <option>September</option>
+      <option>October</option>
+      <option>November</option>
+      <option>December</option>
+    </select>
+    <select id="dob-year">
+      <option>Year</option>
+      ${Array.from({ length: 100 }, (_, i) => `<option>${2025 - i}</option>`).join('')}
+    </select>
+  </section>
+
+</body>
+</html>

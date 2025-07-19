@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Text Boxes & Age Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="date"]:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    input[type="text"]:disabled {
+      background-color: #e9ecef;
+      color: #6c757d;
+      cursor: not-allowed;
+    }
+
+    .age-output {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-top: -15px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <label for="name">Enter your name:</label>
+  <input type="text" id="name" name="name" placeholder="John Doe" />
+
+  <label for="disabled-input">Disabled input:</label>
+  <input type="text" id="disabled-input" name="disabled-input" value="Can't edit this" disabled />
+
+  <label for="limited-input">Input with max 10 characters:</label>
+  <input type="text" id="limited-input" name="limited-input" maxlength="10" placeholder="Max 10 chars" />
+
+  <label for="dob">Select your Date of Birth:</label>
+  <input type="date" id="dob" name="dob" />
+  <div class="age-output" id="ageDisplay"></div>
+
+  <button>NotATextBox</button>
+
+    <section>
+    <h2>1. Native HTML5 Date Input</h2>
+    <label for="native-date">Choose a date:</label>
+    <input type="date" id="native-date" />
+  </section>
+
+  <!-- 2. Textbox with placeholder (Manual Entry) -->
+  <section>
+    <h2>2. Text Input with Date Format Placeholder</h2>
+    <label for="text-date">Enter date (MM/DD/YYYY):</label>
+    <input type="text" id="text-date" placeholder="MM/DD/YYYY" />
+  </section>
+
+  <script>
+    const dobInput = document.getElementById('dob');
+    const ageDisplay = document.getElementById('ageDisplay');
+
+    dobInput.addEventListener('change', () => {
+      const dob = new Date(dobInput.value);
+      const today = new Date();
+
+      if (dob > today) {
+        ageDisplay.textContent = "Please select a valid past date.";
+        return;
+      }
+
+      let age = today.getFullYear() - dob.getFullYear();
+      const hasBirthdayPassedThisYear = (
+        today.getMonth() > dob.getMonth() ||
+        (today.getMonth() === dob.getMonth() && today.getDate() >= dob.getDate())
+      );
+
+      if (!hasBirthdayPassedThisYear) {
+        age -= 1;
+      }
+
+      ageDisplay.textContent = `Age as of today: ${age} year${age !== 1 ? 's' : ''}`;
+    });
+  </script>
+
+</body>
+</html>
